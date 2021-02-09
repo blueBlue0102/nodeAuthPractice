@@ -7,4 +7,7 @@ express 4.17.1
 
 # 內容  
 - Basic Authentication  
-    `node basicAuth/index.js`  
+    帳號：blue, 密碼：666  
+- Cookie  
+- JWT  
+
