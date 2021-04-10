@@ -1,5 +1,8 @@
 # 簡單會員系統
 
+**Demo**：暫無  
+**工作紀錄**：https://hackmd.io/@vegetableBird/SyklVAk-O
+
 使用 **Node.js** 做出會員系統  
 可以註冊/登入/登出
 
