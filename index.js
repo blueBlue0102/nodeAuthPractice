@@ -1,11 +1,14 @@
-const express = require('express');
-const router = require('./router');
-const config = require('./config');
-
+const express = require("express");
 const app = express();
 
-app.use(router);
+require("dotenv").config();
+require("./startup/routes")(app);
+require("./startup/db")();
 
-app.listen(config.port, () => {
-    console.log(`Example app listening at http://localhost:${config.port}`);
+app.set("views", "./views");
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+
+app.listen(process.env.PORT, () => {
+  console.log(`Example app listening at http://localhost:${process.env.PORT}`);
 });
