@@ -1,4 +1,3 @@
-const session = require("express-session");
 const bcrypt = require("bcrypt");
 const db = require("../models/index");
 const { validate } = require("../models/user");
