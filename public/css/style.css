@@ -42,6 +42,13 @@ input::-ms-clear, textarea::-ms-clear {
 Login/Signup modal window - by CodyHouse.co
 
 -------------------------------- */
+.g-signin2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px;
+}
+
 .cd-main-header {
   position: relative;
   z-index: 1;

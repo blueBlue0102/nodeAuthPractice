@@ -135,25 +135,12 @@
           data-type="login"
         >
           <!-- log in form -->
-          <div
+          <form class="cd-signin-modal__form" action="/login" method="POST">
+            <div
             class="g-signin2"
             data-onsuccess="onSignIn"
             data-theme="dark"
           ></div>
-          <script>
-            function onSignIn(googleUser) {
-              const id_token = googleUser.getAuthResponse().id_token;
-              const xhr = new XMLHttpRequest();
-              xhr.open("POST", "http://localhost:8080/googlesignin");
-              xhr.setRequestHeader(
-                "Content-Type",
-                "application/x-www-form-urlencoded"
-              );
-              xhr.send("idtoken=" + id_token);
-            }
-          </script>
-
-          <form class="cd-signin-modal__form" action="/login" method="POST">
             <p class="cd-signin-modal__fieldset">
               <label
                 class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace"
@@ -339,5 +326,17 @@
     <!-- polyfill for the HTML5 placeholder attribute -->
     <script src="js/main.js"></script>
     <!-- Resource JavaScript -->
+    <script>
+      function onSignIn(googleUser) {
+        const id_token = googleUser.getAuthResponse().id_token;
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:8080/googlesignin");
+        xhr.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+        xhr.send("idtoken=" + id_token);
+      }
+    </script>
   </body>
 </html>
