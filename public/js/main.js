@@ -33,6 +33,9 @@
       ) {
         event.preventDefault();
         removeClass(self.element, "cd-signin-modal--is-visible");
+        if (document.cookie === "G_AUTHUSER_H=0") {
+          location.reload();
+        }
       }
     });
     //close modal when clicking the esc keyboard button
