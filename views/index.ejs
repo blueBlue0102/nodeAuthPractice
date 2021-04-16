@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
+    <title>Blue Authentication Demo</title>
+    <meta name="description" content="A simple login system" />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-signin-scope" content="profile email" />
@@ -22,8 +25,6 @@
     <!-- Resource style -->
     <link rel="stylesheet" href="css/demo.css" />
     <!-- Demo style -->
-
-    <title>Log In &amp; Sign Up Form</title>
   </head>
   <body>
     <header class="cd-main-header">
@@ -343,7 +344,7 @@
             document.cookie = "reload-page=true";
             location.reload();
           }
-        }
+        };
         xhr.send("idtoken=" + id_token);
       }
     </script>
