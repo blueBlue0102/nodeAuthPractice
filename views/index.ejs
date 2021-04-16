@@ -333,7 +333,7 @@
       function onSignIn(googleUser) {
         const id_token = googleUser.getAuthResponse().id_token;
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://localhost:8080/googlesignin");
+        xhr.open("POST", "https://blue-auth-demo.herokuapp.com/googlesignin");
         xhr.setRequestHeader(
           "Content-Type",
           "application/x-www-form-urlencoded"
