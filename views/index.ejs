@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-signin-scope" content="profile email" />
+    <meta
+      name="google-signin-client_id"
+      content="169636238746-gbkbj1jh7gvff9c9bngqfpl0gln3riif.apps.googleusercontent.com"
+    />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
     <link
       href="https://fonts.googleapis.com/css?family=PT+Sans:400,700"
@@ -50,8 +56,17 @@
             <a
               class="cd-main-nav__item cd-main-nav__item--signout"
               href="/logout"
+              onclick="signOut();"
               >Sign out</a
             >
+            <script>
+              function signOut() {
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                  console.log("User signed out.");
+                });
+              }
+            </script>
           </li>
           <% } %>
         </ul>
@@ -120,7 +135,15 @@
           data-type="login"
         >
           <!-- log in form -->
+          <!-- google login -->
           <form class="cd-signin-modal__form" action="/login" method="POST">
+            <div
+              class="g-signin2"
+              data-onsuccess="onSignIn"
+              data-theme="dark"
+            ></div>
+            <br />
+            <hr />
             <p class="cd-signin-modal__fieldset">
               <label
                 class="cd-signin-modal__label cd-signin-modal__label--email cd-signin-modal__label--image-replace"
@@ -306,5 +329,23 @@
     <!-- polyfill for the HTML5 placeholder attribute -->
     <script src="js/main.js"></script>
     <!-- Resource JavaScript -->
+    <script>
+      function onSignIn(googleUser) {
+        const id_token = googleUser.getAuthResponse().id_token;
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:8080/googlesignin");
+        xhr.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+        xhr.onload = () => {
+          if (document.cookie.indexOf("reload-page") < 0) {
+            document.cookie = "reload-page=true";
+            location.reload();
+          }
+        }
+        xhr.send("idtoken=" + id_token);
+      }
+    </script>
   </body>
 </html>

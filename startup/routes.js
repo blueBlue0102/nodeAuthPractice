@@ -5,6 +5,7 @@ const RedisStore = require("connect-redis")(session);
 
 const index = require("../routes/index");
 const login = require("../routes/login");
+const googlesignin = require("../routes/googlesignin");
 const logout = require("../routes/logout");
 const register = require("../routes/register");
 
@@ -24,6 +25,7 @@ module.exports = function (app) {
   );
   app.use("/", index);
   app.use("/login", login);
+  app.use("/googlesignin", googlesignin);
   app.use("/logout", logout);
   app.use("/register", register);
 };
