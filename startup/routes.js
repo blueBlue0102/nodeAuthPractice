@@ -8,7 +8,7 @@ const login = require("../routes/login");
 const logout = require("../routes/logout");
 const register = require("../routes/register");
 
-const redisClient = redis.createClient();
+const redisClient = redis.createClient(process.env.REDIS_URL);
 redisClient.on("error", console.error);
 
 module.exports = function (app) {
