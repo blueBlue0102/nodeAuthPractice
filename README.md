@@ -1,6 +1,6 @@
 # 簡單會員系統
 
-**Demo**：暫無  
+**Demo**：https://blue-auth-demo.herokuapp.com/  
 **工作紀錄**：https://hackmd.io/@vegetableBird/SyklVAk-O
 
 使用 **Node.js** 做出會員系統  
