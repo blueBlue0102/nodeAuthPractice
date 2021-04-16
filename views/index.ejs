@@ -338,6 +338,12 @@
           "Content-Type",
           "application/x-www-form-urlencoded"
         );
+        xhr.onload = () => {
+          if (document.cookie.indexOf("reload-page") < 0) {
+            document.cookie = "reload-page=true";
+            location.reload();
+          }
+        }
         xhr.send("idtoken=" + id_token);
       }
     </script>
